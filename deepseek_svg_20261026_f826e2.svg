@@ -1,333 +1,220 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
-  <!--
-  ============================================================
-  МАСКОТ «ЛИС-ПОЛИГЛОТ ФИКСА» — анимационный SVG (v2)
-  Палитра проекта + один доп. оттенок на цвет:
-    bg/cream      #FFF4E0   (фон, светлые пятна)
-    cream_dark    #FFE3BF   (живот — тёмнее фона)
-    primary       #1F4E79   (каска, штаны, контур-акценты)
-    primary_dark  #163A5A   (тень каски, обувь)
-    accent        #FF8A3D   (мех лиса)
-    accent_dark   #E06A22   (тень меха)
-    support       #3DAA8C   (жилет, блокнот)
-    support_dark  #2C8068   (тень жилета)
-    text/outline  #222222   (контур, глаза)
-  Стиль: единый контур 6px на силуэтах, без градиентов/filter/mask.
-  ============================================================
-  КАРТА ID (порядок back → front):
-    mascot_tail, tail_base(pivot), tail_fluff, tail_tip
-    leg_l, leg_r, foot_l, foot_r, paw_l, paw_r
-    torso, vest, vest_stripe_l, vest_stripe_r, belly
-    arm_l, hand_l, fingers_l, notebook, pencil
-    neck, neck_pivot(pivot)
-    head, ear_l, ear_base_l(pivot), ear_r, ear_base_r(pivot)
-    face, muzzle, cheek_l, cheek_r
-    eyes_open / eyes_closed / eyes_happy  (взаимоискл., display)
-    brows_neutral / brows_up              (взаимоискл., display)
-    mouth_smile / mouth_open / mouth_wow  (взаимоискл., display)
-    helmet, helmet_dome, helmet_visor, helmet_rim, helmet_lamp, helmet_badge
-    arm_r_point / arm_r_wave   (взаимоискл., display)
-    shoulder_r(pivot), hand_r_point / hand_r_wave, finger_r
-    lang_accent (display="none")
-  Пивоты: circle r="2" fill="none" — shoulder_l, shoulder_r, neck,
-          ear_base_l, ear_base_r, tail_base.
-  ============================================================
-  -->
-  <g id="mascot_root">
-
-    <!-- ================= ХВОСТ (за телом) ================= -->
-    <g id="mascot_tail">
-      <circle id="tail_base" cx="360" cy="1420" r="2" fill="none"/>
-      <!-- Основание хвоста -->
-      <path id="tail_fluff" d="M380 1400
-        C 250 1360 200 1240 260 1120
-        C 300 1040 380 1010 440 1060
-        C 400 1140 380 1240 420 1340 Z"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <!-- Тёмная тень у основания -->
-      <path id="tail_shade" d="M380 1400 C 300 1380 250 1300 280 1220
-        C 320 1260 380 1300 420 1340 Z"
-        fill="#E06A22" stroke="none"/>
-      <!-- Кремовый кончик -->
-      <path id="tail_tip" d="M270 1120 C 250 1060 300 1010 360 1010
-        C 400 1010 430 1035 440 1060 C 400 1060 330 1080 300 1130 Z"
-        fill="#FFF4E0" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-    </g>
-
-    <!-- ================= НОГИ / СТОПЫ ================= -->
-    <g id="leg_l">
-      <rect id="leg_l_shape" x="440" y="1500" width="90" height="200" rx="28"
-        fill="#1F4E79" stroke="#222222" stroke-width="6"/>
-      <ellipse id="foot_l" cx="485" cy="1720" rx="72" ry="30"
-        fill="#163A5A" stroke="#222222" stroke-width="6"/>
-      <!-- Подушечки лап -->
-      <ellipse id="paw_l_big" cx="485" cy="1722" rx="24" ry="12" fill="#FFF4E0"/>
-      <circle id="paw_l_toe1" cx="458" cy="1710" r="6" fill="#FFF4E0"/>
-      <circle id="paw_l_toe2" cx="485" cy="1704" r="6" fill="#FFF4E0"/>
-      <circle id="paw_l_toe3" cx="512" cy="1710" r="6" fill="#FFF4E0"/>
-    </g>
-    <g id="leg_r">
-      <rect id="leg_r_shape" x="550" y="1500" width="90" height="200" rx="28"
-        fill="#1F4E79" stroke="#222222" stroke-width="6"/>
-      <ellipse id="foot_r" cx="595" cy="1720" rx="72" ry="30"
-        fill="#163A5A" stroke="#222222" stroke-width="6"/>
-      <ellipse id="paw_r_big" cx="595" cy="1722" rx="24" ry="12" fill="#FFF4E0"/>
-      <circle id="paw_r_toe1" cx="568" cy="1710" r="6" fill="#FFF4E0"/>
-      <circle id="paw_r_toe2" cx="595" cy="1704" r="6" fill="#FFF4E0"/>
-      <circle id="paw_r_toe3" cx="622" cy="1710" r="6" fill="#FFF4E0"/>
-    </g>
-
-    <!-- ================= ТУЛОВИЩЕ ================= -->
-    <g id="torso">
-      <!-- Силуэт тела (единый контур) -->
-      <path id="torso_shape" d="M380 1180
-        C 380 1120 460 1090 540 1090
-        C 620 1090 700 1120 700 1180
-        L 720 1500 C 660 1540 420 1540 360 1500 Z"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <!-- Живот: явно внутри торса, тёмнее фона -->
-      <path id="belly" d="M465 1235
-        C 480 1210 600 1210 615 1235
-        L 625 1448 C 585 1468 495 1468 455 1448 Z"
-        fill="#FFE3BF" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <!-- Жилет-хайвиз -->
-      <path id="vest" d="M405 1145
-        C 430 1115 465 1100 500 1098
-        L 502 1170 L 486 1470 L 408 1458 Z"
-        fill="#3DAA8C" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <path id="vest_right" d="M580 1098
-        C 615 1100 650 1115 675 1145
-        L 672 1458 L 594 1470 L 578 1170 Z"
-        fill="#3DAA8C" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <!-- Светоотражающие полосы повторяют наклон передних панелей -->
-      <path id="vest_stripe_l" d="M408 1280 L 488 1280 L 487 1302 L 409 1302 Z" fill="#FFF4E0"/>
-      <path id="vest_stripe_r" d="M592 1280 L 672 1280 L 671 1302 L 593 1302 Z" fill="#FFF4E0"/>
-      <!-- Ворот жилета -->
-      <path id="vest_collar" d="M500 1098 L 540 1138 L 580 1098" fill="none"
-        stroke="#222222" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-
-    <!-- ================= ЛЕВАЯ РУКА + БЛОКНОТ ================= -->
-    <g id="arm_l">
-      <circle id="shoulder_l" cx="400" cy="1200" r="2" fill="none"/>
-      <path id="arm_l_shape" d="M400 1180
-        C 340 1220 310 1320 320 1420
-        C 325 1460 370 1470 390 1440
-        C 405 1400 400 1300 430 1240 Z"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <!-- Ладонь левой руки держит блокнот -->
-      <circle id="hand_l" cx="360" cy="1440" r="42"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-    </g>
-
-    <g id="notebook">
-      <rect id="notebook_cover" x="300" y="1360" width="120" height="150" rx="10"
-        fill="#3DAA8C" stroke="#222222" stroke-width="6"/>
-      <rect id="notebook_page" x="312" y="1372" width="96" height="126" rx="6"
-        fill="#FFF4E0" stroke="#222222" stroke-width="4"/>
-      <line id="notebook_line_1" x1="370" y1="1402" x2="394" y2="1402"
-        stroke="#1F4E79" stroke-width="5"/>
-      <line id="notebook_line_2" x1="370" y1="1432" x2="394" y2="1432"
-        stroke="#1F4E79" stroke-width="5"/>
-      <line id="notebook_line_3" x1="370" y1="1462" x2="394" y2="1462"
-        stroke="#1F4E79" stroke-width="5"/>
-      <!-- Карандаш расположен за пальцами -->
-      <g id="pencil">
-        <rect id="pencil_body" x="389" y="1340" width="10" height="90" rx="4"
-          fill="#FF8A3D" stroke="#222222" stroke-width="4"/>
-        <polygon id="pencil_tip" points="389,1430 394,1447 399,1430"
-          fill="#FFF4E0" stroke="#222222" stroke-width="4" stroke-linejoin="round"/>
-      </g>
-      <!-- Пальцы обхватывают край обложки, не перекрывая записи -->
-      <g id="fingers_l">
-        <ellipse id="finger_l_1" cx="350" cy="1385" rx="17" ry="11"
-          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
-        <ellipse id="finger_l_2" cx="350" cy="1415" rx="18" ry="11"
-          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
-        <ellipse id="finger_l_3" cx="350" cy="1445" rx="17" ry="11"
-          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
-      </g>
-    </g>
-
-    <!-- ================= ШЕЯ + ГОЛОВА ================= -->
-    <g id="neck_group">
-      <circle id="neck" cx="540" cy="1100" r="2" fill="none"/>
-      <rect id="neck_shape" x="500" y="1040" width="80" height="90" rx="20"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-    </g>
-
-    <g id="head">
-      <!-- Уши (сначала, за головой) -->
-      <g id="ear_l">
-        <circle id="ear_base_l" cx="420" cy="700" r="2" fill="none"/>
-        <polygon id="ear_l_outer" points="400,720 320,460 520,600"
-          fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-        <polygon id="ear_l_inner" points="410,690 360,520 490,610"
-          fill="#FFF4E0" stroke="none"/>
-      </g>
-      <g id="ear_r">
-        <circle id="ear_base_r" cx="660" cy="700" r="2" fill="none"/>
-        <polygon id="ear_r_outer" points="680,720 760,460 560,600"
-          fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-        <polygon id="ear_r_inner" points="670,690 720,520 590,610"
-          fill="#FFF4E0" stroke="none"/>
-      </g>
-
-      <!-- Морда -->
-      <ellipse id="face" cx="540" cy="820" rx="220" ry="200"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-      <!-- Светлая часть морды -->
-      <path id="muzzle" d="M390 858
-        C 425 890 475 914 540 914
-        C 605 914 655 890 690 858
-        C 680 948 625 1000 540 1000
-        C 455 1000 400 948 390 858 Z"
-        fill="#FFF4E0" stroke="none"/>
-      <!-- Мягкие щёчные пятна, симметричные относительно центра -->
-      <ellipse id="cheek_l" cx="420" cy="906" rx="27" ry="21" fill="#E06A22" opacity="0.28"/>
-      <ellipse id="cheek_r" cx="660" cy="906" rx="27" ry="21" fill="#E06A22" opacity="0.28"/>
-      <!-- Объёмные щёчки мордочки -->
-      <path id="muzzle_lobe_l" d="M468 910 C 480 895 510 898 528 920 C 522 944 505 951 488 940 C 477 933 471 922 468 910 Z"
-        fill="#FFF4E0" stroke="none"/>
-      <path id="muzzle_lobe_r" d="M612 910 C 600 895 570 898 552 920 C 558 944 575 951 592 940 C 603 933 609 922 612 910 Z"
-        fill="#FFF4E0" stroke="none"/>
-
-      <!-- ГЛАЗА: 3 состояния, взаимоисключающие -->
-      <g id="eyes_open">
-        <ellipse id="eye_l_open" cx="465" cy="815" rx="30" ry="38" fill="#222222"/>
-        <ellipse id="eye_r_open" cx="615" cy="815" rx="30" ry="38" fill="#222222"/>
-        <circle id="eye_l_glint" cx="475" cy="802" r="9" fill="#FFF4E0"/>
-        <circle id="eye_r_glint" cx="625" cy="802" r="9" fill="#FFF4E0"/>
-      </g>
-      <g id="eyes_closed" display="none">
-        <path id="eye_l_closed" d="M435 815 Q465 830 495 815"
-          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
-        <path id="eye_r_closed" d="M585 815 Q615 830 645 815"
-          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
-      </g>
-      <g id="eyes_happy" display="none">
-        <path id="eye_l_happy" d="M435 825 Q465 795 495 825"
-          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
-        <path id="eye_r_happy" d="M585 825 Q615 795 645 825"
-          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
-      </g>
-
-      <!-- БРОВИ -->
-      <g id="brows_neutral">
-        <rect id="brow_l_neutral" x="430" y="755" width="70" height="12" rx="6" fill="#222222"/>
-        <rect id="brow_r_neutral" x="580" y="755" width="70" height="12" rx="6" fill="#222222"/>
-      </g>
-      <g id="brows_up" display="none">
-        <rect id="brow_l_up" x="430" y="735" width="70" height="12" rx="6" fill="#222222"/>
-        <rect id="brow_r_up" x="580" y="735" width="70" height="12" rx="6" fill="#222222"/>
-      </g>
-
-      <!-- НОС: мягкий треугольник с округлёнными крыльями -->
-      <path id="nose" d="M510 876
-        C 512 866 523 863 540 863
-        C 557 863 568 866 570 876
-        C 568 888 551 901 540 903
-        C 529 901 512 888 510 876 Z"
-        fill="#222222" stroke="#222222" stroke-width="3" stroke-linejoin="round"/>
-      <path id="nose_glint" d="M523 873 Q535 868 546 872"
-        fill="none" stroke="#FFF4E0" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
-
-      <!-- РОТ: выразительная лисья улыбка с центральной перемычкой -->
-      <g id="mouth_smile">
-        <path id="philtrum" d="M540 900 L540 925"
-          stroke="#222222" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <path id="smile_path" d="M540 925
-          C 530 940 513 947 497 939
-          M540 925
-          C 550 940 567 947 583 939"
-          stroke="#222222" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <path id="smile_lower" d="M500 944 C 523 964 557 964 580 944"
-          stroke="#222222" stroke-width="5" fill="none" stroke-linecap="round"/>
-      </g>
-      <g id="mouth_open" display="none">
-        <path id="mouth_open_shape" d="M505 928
-          C 510 911 530 909 540 921
-          C 550 909 570 911 575 928
-          C 579 949 560 968 540 968
-          C 520 968 501 949 505 928 Z"
-          fill="#222222"/>
-        <path id="tongue" d="M520 950 Q540 939 560 950 Q555 965 540 965 Q525 965 520 950 Z"
-          fill="#E06A22"/>
-      </g>
-      <g id="mouth_wow" display="none">
-        <ellipse id="mouth_wow_circle" cx="540" cy="944" rx="19" ry="27"
-          fill="#222222"/>
-        <ellipse id="mouth_wow_glint" cx="534" cy="934" rx="5" ry="7" fill="#FFF4E0" opacity="0.75"/>
-      </g>
-    </g>
-
-    <!-- ================= КАСКА ================= -->
-    <g id="helmet">
-      <!-- Купол -->
-      <path id="helmet_dome" d="M320 700
-        C 320 540 760 540 760 700
-        L 760 730 L 320 730 Z"
-        fill="#1F4E79" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <!-- Тёмная полоса-тень снизу купола -->
-      <path id="helmet_shade" d="M320 700 L 760 700 L 760 730 L 320 730 Z"
-        fill="#163A5A"/>
-      <!-- Козырёк -->
-      <path id="helmet_visor" d="M300 700
-        C 300 745 780 745 780 700
-        L 780 720 C 780 765 300 765 300 720 Z"
-        fill="#1F4E79" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <!-- Тёмный ободок козырька -->
-      <path id="helmet_rim" d="M300 720 C 300 765 780 765 780 720"
-        stroke="#163A5A" stroke-width="10" fill="none" stroke-linecap="round"/>
-      <!-- Лампа -->
-      <circle id="helmet_lamp" cx="540" cy="620" r="26"
-        fill="#FFF4E0" stroke="#222222" stroke-width="6"/>
-      <circle id="helmet_lamp_core" cx="540" cy="620" r="12" fill="#FF8A3D"/>
-      <!-- Значок-флажок -->
-      <rect id="helmet_badge" x="640" y="640" width="34" height="46" rx="6"
-        fill="#3DAA8C" stroke="#222222" stroke-width="5"/>
-    </g>
-
-    <!-- ================= ПРАВАЯ РУКА (2 позы) ================= -->
-    <g id="arm_r_point">
-      <circle id="shoulder_r" cx="680" cy="1200" r="2" fill="none"/>
-      <path id="arm_r_point_shape" d="M680 1180
-        C 760 1160 820 1080 850 980
-        C 865 930 905 930 905 970
-        C 900 1060 830 1180 720 1240 Z"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <!-- Ладонь + указательный палец -->
-      <circle id="hand_r_point" cx="860" cy="940" r="46"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-      <rect id="finger_r" x="865" y="875" width="24" height="80" rx="12"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-      <rect id="thumb_r" x="810" y="925" width="24" height="46" rx="12"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-    </g>
-    <g id="arm_r_wave" display="none">
-      <circle id="shoulder_r_wave" cx="680" cy="1200" r="2" fill="none"/>
-      <path id="arm_r_wave_shape" d="M680 1180
-        C 760 1140 820 1000 800 880
-        C 790 820 850 810 860 860
-        C 880 990 850 1170 720 1240 Z"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <circle id="hand_r_wave" cx="830" cy="840" r="48"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-      <rect id="wave_finger_1" x="790" y="790" width="22" height="70" rx="11"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-      <rect id="wave_finger_2" x="820" y="780" width="22" height="80" rx="11"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-      <rect id="wave_finger_3" x="850" y="790" width="22" height="70" rx="11"
-        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
-    </g>
-
-    <!-- ================= АКЦЕНТ ЯЗЫКА (скрыт, включать вручную) ================= -->
-    <g id="lang_accent" display="none">
-      <rect id="lang_scarf" x="450" y="1050" width="180" height="50" rx="25"
-        fill="#3DAA8C" stroke="#222222" stroke-width="6"/>
-      <rect id="lang_scarf_stripe" x="450" y="1068" width="180" height="14"
-        fill="#FFF4E0"/>
-    </g>
-
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1080 1920" style="enable-background:new 0 0 1080 1920;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#FF8A3D;stroke:#222222;stroke-width:6;stroke-linejoin:round;}
+	.st2{fill:#FFF4E0;stroke:#222222;stroke-width:6;stroke-linejoin:round;}
+	.st3{fill:#E06A22;}
+	.st4{fill:#1F4E79;stroke:#222222;stroke-width:6;}
+	.st5{fill:#163A5A;stroke:#222222;stroke-width:6;}
+	.st6{fill:#FFF4E0;}
+	.st7{fill:#FFE3BF;stroke:#222222;stroke-width:6;stroke-linejoin:round;}
+	.st8{fill:#3DAA8C;stroke:#222222;stroke-width:6;stroke-linejoin:round;}
+	.st9{fill:none;stroke:#222222;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;}
+	.st10{fill:#FF8A3D;stroke:#222222;stroke-width:6;}
+	.st11{fill:#3DAA8C;stroke:#222222;stroke-width:6;}
+	.st12{fill:#FFF4E0;stroke:#222222;stroke-width:4;}
+	.st13{fill:none;stroke:#1F4E79;stroke-width:5;}
+	.st14{fill:#FF8A3D;stroke:#222222;stroke-width:4;}
+	.st15{fill:#FFF4E0;stroke:#222222;stroke-width:4;stroke-linejoin:round;}
+	.st16{fill:#FF8A3D;stroke:#222222;stroke-width:5;}
+	.st17{fill:#222222;}
+	.st18{display:none;}
+	.st19{display:inline;fill:none;stroke:#222222;stroke-width:8;stroke-linecap:round;}
+	.st20{display:inline;fill:#222222;}
+	.st21{fill:#222222;stroke:#222222;stroke-width:3;stroke-linejoin:round;}
+	.st22{opacity:0.75;fill:none;stroke:#FFF4E0;stroke-width:4;stroke-linecap:round;enable-background:new    ;}
+	.st23{fill:none;stroke:#222222;stroke-width:6;stroke-linecap:round;}
+	.st24{fill:none;stroke:#222222;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;}
+	.st25{fill:none;stroke:#222222;stroke-width:5;stroke-linecap:round;}
+	.st26{display:inline;fill:#E06A22;}
+	.st27{display:inline;opacity:0.75;fill:#FFF4E0;enable-background:new    ;}
+	.st28{opacity:0.28;fill:#E06A22;enable-background:new    ;}
+	.st29{fill:#1F4E79;}
+	.st30{fill:#163A5A;}
+	.st31{fill:#FFF4E0;stroke:#222222;stroke-width:6;}
+	.st32{fill:#FF8A3D;}
+	.st33{fill:#3DAA8C;stroke:#222222;stroke-width:5;}
+	.st34{fill:none;stroke:#222222;stroke-width:6;stroke-linejoin:round;}
+	.st35{display:inline;fill:none;}
+	.st36{display:inline;fill:#FF8A3D;stroke:#222222;stroke-width:6;stroke-linejoin:round;}
+	.st37{display:inline;fill:#FF8A3D;stroke:#222222;stroke-width:6;}
+	.st38{display:inline;fill:#3DAA8C;stroke:#222222;stroke-width:6;}
+	.st39{display:inline;fill:#FFF4E0;}
+</style>
+<g id="mascot_root">
+	<g id="mascot_tail">
+		<circle id="tail_base" class="st0" cx="360" cy="1420" r="2"/>
+		<path id="tail_fluff" class="st1" d="M380,1400c-130-40-180-160-120-280c40-80,120-110,180-60c-40,80-60,180-20,280L380,1400z"/>
+		<path id="tail_tip" class="st2" d="M270,1120c-20-60,30-110,90-110c40,0,70,25,80,50c-40,0-110,20-140,70L270,1120z"/>
+		<path id="tail_shade" class="st3" d="M380,1400c-80-20-130-100-100-180c40,40,100,80,140,120L380,1400z"/>
+	</g>
+	<g id="leg_l">
+		<path id="leg_l_shape" class="st4" d="M468,1500h34c15.5,0,28,12.5,28,28v144c0,15.5-12.5,28-28,28h-34c-15.5,0-28-12.5-28-28
+			v-144C440,1512.5,452.5,1500,468,1500z"/>
+		<ellipse id="foot_l" class="st5" cx="485" cy="1720" rx="72" ry="30"/>
+		<ellipse id="paw_l_big" class="st6" cx="485" cy="1722" rx="24" ry="12"/>
+		<circle id="paw_l_toe1" class="st6" cx="458" cy="1710" r="6"/>
+		<circle id="paw_l_toe2" class="st6" cx="485" cy="1704" r="6"/>
+		<circle id="paw_l_toe3" class="st6" cx="512" cy="1710" r="6"/>
+	</g>
+	<g id="leg_r">
+		<path id="leg_r_shape" class="st4" d="M578,1500h34c15.5,0,28,12.5,28,28v144c0,15.5-12.5,28-28,28h-34c-15.5,0-28-12.5-28-28
+			v-144C550,1512.5,562.5,1500,578,1500z"/>
+		<ellipse id="foot_r" class="st5" cx="595" cy="1720" rx="72" ry="30"/>
+		<ellipse id="paw_r_big" class="st6" cx="595" cy="1722" rx="24" ry="12"/>
+		<circle id="paw_r_toe1" class="st6" cx="568" cy="1710" r="6"/>
+		<circle id="paw_r_toe2" class="st6" cx="595" cy="1704" r="6"/>
+		<circle id="paw_r_toe3" class="st6" cx="622" cy="1710" r="6"/>
+	</g>
+	<g id="torso">
+		<path id="torso_shape" class="st1" d="M380,1180c0-60,80-90,160-90s160,30,160,90l20,320c-60,40-300,40-360,0L380,1180z"/>
+		<path id="belly" class="st7" d="M465,1235c15-25,135-25,150,0l10,213c-40,20-130,20-170,0L465,1235z"/>
+		<path id="vest_right" class="st8" d="M579.7,1083c55.6,2.2,111.1,19.1,150.8,52.7l-4.8,350.9L601.9,1500l-25.4-336.3L579.7,1083z"
+			/>
+		<path id="vest_left" class="st8" d="M500.3,1083c-55.6,2.2-111.1,19.1-150.8,52.7l4.8,350.9l123.8,13.5l25.4-336.3L500.3,1083z"/>
+		<path id="vest_collar" class="st9" d="M500,1098l40,40l40-40"/>
+		<path id="vest_stripe_r" class="st6" d="M590.9,1277.4h133l-1.7,24.6H592.6L590.9,1277.4z"/>
+		<path id="vest_stripe_l" class="st6" d="M489.1,1277.4h-133l1.7,24.6h129.7L489.1,1277.4z"/>
+	</g>
+	<g id="arm_l">
+		<circle id="shoulder_l" class="st0" cx="400" cy="1200" r="2"/>
+		<path id="arm_l_shape" class="st1" d="M400,1180c-60,40-90,140-80,240c5,40,50,50,70,20c15-40,10-140,40-200L400,1180z"/>
+		<circle id="hand_l" class="st10" cx="360" cy="1440" r="42"/>
+	</g>
+	<g id="notebook">
+		<path id="notebook_cover" class="st11" d="M310,1360h100c5.5,0,10,4.5,10,10v130c0,5.5-4.5,10-10,10H310c-5.5,0-10-4.5-10-10v-130
+			C300,1364.5,304.5,1360,310,1360z"/>
+		<path id="notebook_page" class="st12" d="M318,1372h84c3.3,0,6,2.7,6,6v114c0,3.3-2.7,6-6,6h-84c-3.3,0-6-2.7-6-6v-114
+			C312,1374.7,314.7,1372,318,1372z"/>
+		<line id="notebook_line_1" class="st13" x1="370" y1="1402" x2="394" y2="1402"/>
+		<line id="notebook_line_2" class="st13" x1="370" y1="1432" x2="394" y2="1432"/>
+		<line id="notebook_line_3" class="st13" x1="370" y1="1462" x2="394" y2="1462"/>
+		<g id="pencil">
+			<path id="pencil_body" class="st14" d="M393,1340h2c2.2,0,4,1.8,4,4v82c0,2.2-1.8,4-4,4h-2c-2.2,0-4-1.8-4-4v-82
+				C389,1341.8,390.8,1340,393,1340z"/>
+			<polygon id="pencil_tip" class="st15" points="389,1430 394,1447 399,1430 			"/>
+		</g>
+		<g id="fingers_l">
+			<ellipse id="finger_l_1" class="st16" cx="350" cy="1385" rx="17" ry="11"/>
+			<ellipse id="finger_l_2" class="st16" cx="350" cy="1415" rx="18" ry="11"/>
+			<ellipse id="finger_l_3" class="st16" cx="350" cy="1445" rx="17" ry="11"/>
+		</g>
+	</g>
+	<g id="neck_group">
+		<circle id="neck" class="st0" cx="540" cy="1100" r="2"/>
+		<path id="neck_shape" class="st10" d="M520,1040h40c11,0,20,9,20,20v50c0,11-9,20-20,20h-40c-11,0-20-9-20-20v-50
+			C500,1049,509,1040,520,1040z"/>
+	</g>
+	<g id="head">
+		<g id="ear_r">
+			<circle id="ear_base_r" class="st0" cx="660" cy="751.9" r="2"/>
+			<path id="ear_r_outer" class="st1" d="M680,771.9l80-260c-39.2,68.4-200,140-200,140L680,771.9z"/>
+			<path id="ear_r_outer_00000032618503597196450460000009532253342876689794_" class="st6" d="M665.1,737.6l47.8-155.3
+				C689.5,623.2,593.5,666,593.5,666L665.1,737.6z"/>
+		</g>
+		<g id="ear_l">
+			<circle id="ear_base_l" class="st0" cx="420.8" cy="751.9" r="2"/>
+			<path id="ear_l_outer_00000140717819229899656130000006764216456367183752_" class="st1" d="M400.8,771.9l-80-260
+				c39.2,68.4,200,140,200,140L400.8,771.9z"/>
+			<path id="ear_l_outer" class="st6" d="M415.6,737.6l-47.8-155.3c23.4,40.8,119.4,83.6,119.4,83.6L415.6,737.6z"/>
+		</g>
+		<ellipse id="face" class="st10" cx="540" cy="872" rx="220" ry="200"/>
+		<g id="eyes_open">
+			<ellipse id="eye_l_open" class="st17" cx="465" cy="867" rx="30" ry="38"/>
+			<ellipse id="eye_r_open" class="st17" cx="615" cy="867" rx="30" ry="38"/>
+			<circle id="eye_l_glint" class="st6" cx="475" cy="854" r="9"/>
+			<circle id="eye_r_glint" class="st6" cx="625" cy="854" r="9"/>
+		</g>
+		<g id="eyes_closed" class="st18">
+			<path id="eye_l_closed" class="st19" d="M435,867c20,10,40,10,60,0"/>
+			<path id="eye_r_closed" class="st19" d="M585,867c20,10,40,10,60,0"/>
+		</g>
+		<g id="eyes_happy" class="st18">
+			<path id="eye_l_happy" class="st19" d="M435,877c20-20,40-20,60,0"/>
+			<path id="eye_r_happy" class="st19" d="M585,877c20-20,40-20,60,0"/>
+		</g>
+		<g id="brows_neutral">
+			<path id="brow_l_neutral" class="st17" d="M492.5,802.1l-57.1,10.1c-3.3,0.6-5.4,3.7-4.9,7l0,0c0.6,3.3,3.7,5.4,7,4.9l57.1-10.1
+				c3.3-0.6,5.4-3.7,4.9-7l0,0C498.9,803.7,495.8,801.5,492.5,802.1z"/>
+			<path id="brow_r_neutral" class="st17" d="M587.5,802.1l57.1,10.1c3.3,0.6,5.4,3.7,4.9,7l0,0c-0.6,3.3-3.7,5.4-7,4.9l-57.1-10.1
+				c-3.3-0.6-5.4-3.7-4.9-7l0,0C581.1,803.7,584.2,801.5,587.5,802.1z"/>
+		</g>
+		<g id="brows_up" class="st18">
+			<path id="brow_l_up" class="st20" d="M436,787h58c3.3,0,6,2.7,6,6l0,0c0,3.3-2.7,6-6,6h-58c-3.3,0-6-2.7-6-6l0,0
+				C430,789.7,432.7,787,436,787z"/>
+			<path id="brow_r_up" class="st20" d="M586,787h58c3.3,0,6,2.7,6,6l0,0c0,3.3-2.7,6-6,6h-58c-3.3,0-6-2.7-6-6l0,0
+				C580,789.7,582.7,787,586,787z"/>
+		</g>
+		<g>
+			<path id="muzzle" class="st6" d="M376,910c38.3,32,92.9,56,164,56s125.7-24,164-56c-10.9,90-71.1,142-164,142S386.9,1000,376,910
+				z"/>
+			<path id="muzzle_lobe_r" class="st6" d="M643.8,947.1c-21.9-23.4-76.5-18.7-109.3,15.6c10.9,37.4,41.9,48.3,72.8,31.2
+				C627.4,982.9,638.3,965.8,643.8,947.1z"/>
+			<path id="muzzle_lobe_l" class="st6" d="M436.2,947.1c21.9-23.4,76.5-18.7,109.3,15.6c-10.9,37.4-41.9,48.3-72.8,31.2
+				C452.6,982.9,441.7,965.8,436.2,947.1z"/>
+		</g>
+		<path id="nose" class="st21" d="M510,928c2-10,13-13,30-13s28,3,30,13c-2,12-19,25-30,27C529,953,512,940,510,928z"/>
+		<path id="nose_glint" class="st22" d="M523,925c8-3.3,15.7-3.7,23-1"/>
+		<g id="mouth_smile">
+			<path id="philtrum" class="st23" d="M540,952v25"/>
+			<path id="smile_path" class="st24" d="M540,977c-10,15-27,22-43,14 M540,977c10,15,27,22,43,14"/>
+			<path id="smile_lower" class="st25" d="M500,996c23,20,57,20,80,0"/>
+		</g>
+		<g id="mouth_open" class="st18">
+			<path id="mouth_open_shape" class="st20" d="M505,980c5-17,25-19,35-7c10-12,30-10,35,7c4,21-15,40-35,40S501,1001,505,980z"/>
+			<path id="tongue" class="st26" d="M520,1002c13.3-7.3,26.7-7.3,40,0c-3.3,10-10,15-20,15S523.3,1012,520,1002z"/>
+		</g>
+		<g id="mouth_wow" class="st18">
+			<ellipse id="mouth_wow_circle" class="st20" cx="540" cy="996" rx="19" ry="27"/>
+			<ellipse id="mouth_wow_glint" class="st27" cx="534" cy="986" rx="5" ry="7"/>
+		</g>
+		<ellipse id="cheek_r" class="st28" cx="701.3" cy="888.4" rx="27" ry="21"/>
+		<ellipse id="cheek_l" class="st28" cx="378.7" cy="888.4" rx="27" ry="21"/>
+	</g>
+	<g id="helmet">
+		<path id="helmet_dome" class="st29" d="M319.7,741c0-160,440-160,440,0v30h-440V741z"/>
+		<path id="helmet_shade" class="st30" d="M318.4,741h441.4v30H318.4V741z"/>
+		<circle id="helmet_lamp" class="st31" cx="540" cy="661" r="26"/>
+		<circle id="helmet_lamp_core" class="st32" cx="540" cy="661" r="12"/>
+		<path id="helmet_badge" class="st33" d="M646,681h22c3.3,0,6,2.7,6,6v34c0,3.3-2.7,6-6,6h-22c-3.3,0-6-2.7-6-6v-34
+			C640,683.7,642.7,681,646,681z"/>
+		<path id="helmet_dome_00000177448005970011469510000003922529479375104905_" class="st34" d="M319.7,740.9c0-160,440-160,440,0v30
+			h-440V740.9z"/>
+		<path id="helmet_visor" class="st29" d="M300,741.5c0,45,480,45,480,0v28c0,45-480,45-480,0V741.5z"/>
+		<path id="helmet_visor_00000047770413116469546630000004359206333670694311_" class="st30" d="M300,758.5c0,45,480,45,480,0v11
+			c0,45-480,45-480,0V758.5z"/>
+		<path id="helmet_visor_00000114056246138900123340000000171707712890860959_" class="st34" d="M299.8,741.2c0,45,480,45,480,0v28
+			c0,45-480,45-480,0V741.2z"/>
+	</g>
+	<g id="arm_r_point">
+		<circle id="shoulder_r" class="st0" cx="680" cy="1200" r="2"/>
+		<path id="arm_r_point_shape" class="st1" d="M680,1180c80-20,140-100,170-200c15-50,55-50,55-10c-5,90-75,210-185,270L680,1180z"
+			/>
+		<circle id="hand_r_point" class="st10" cx="860" cy="940" r="46"/>
+		<path id="finger_r" class="st10" d="M877,875L877,875c6.6,0,12,5.4,12,12v56c0,6.6-5.4,12-12,12l0,0c-6.6,0-12-5.4-12-12v-56
+			C865,880.4,870.4,875,877,875z"/>
+		<path id="thumb_r" class="st10" d="M822,925L822,925c6.6,0,12,5.4,12,12v22c0,6.6-5.4,12-12,12l0,0c-6.6,0-12-5.4-12-12v-22
+			C810,930.4,815.4,925,822,925z"/>
+	</g>
+	<g id="arm_r_wave" class="st18">
+		<circle id="shoulder_r_wave" class="st35" cx="680" cy="1200" r="2"/>
+		<path id="arm_r_wave_shape" class="st36" d="M680,1180c80-40,140-180,120-300c-10-60,50-70,60-20c20,130-10,310-140,380L680,1180z
+			"/>
+		<circle id="hand_r_wave" class="st37" cx="830" cy="840" r="48"/>
+		<path id="wave_finger_1" class="st37" d="M801,790L801,790c6.1,0,11,4.9,11,11v48c0,6.1-4.9,11-11,11l0,0c-6.1,0-11-4.9-11-11v-48
+			C790,794.9,794.9,790,801,790z"/>
+		<path id="wave_finger_2" class="st37" d="M831,780L831,780c6.1,0,11,4.9,11,11v58c0,6.1-4.9,11-11,11l0,0c-6.1,0-11-4.9-11-11v-58
+			C820,784.9,824.9,780,831,780z"/>
+		<path id="wave_finger_3" class="st37" d="M861,790L861,790c6.1,0,11,4.9,11,11v48c0,6.1-4.9,11-11,11l0,0c-6.1,0-11-4.9-11-11v-48
+			C850,794.9,854.9,790,861,790z"/>
+	</g>
+	<g id="lang_accent" class="st18">
+		<path id="lang_scarf" class="st38" d="M475,1050h130c13.8,0,25,11.2,25,25l0,0c0,13.8-11.2,25-25,25H475c-13.8,0-25-11.2-25-25
+			l0,0C450,1061.2,461.2,1050,475,1050z"/>
+		<rect id="lang_scarf_stripe" x="450" y="1068" class="st39" width="180" height="14"/>
+	</g>
+</g>
 </svg>
