@@ -86,18 +86,25 @@
         L 720 1500 C 660 1540 420 1540 360 1500 Z"
         fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
       <!-- Живот: явно внутри торса, тёмнее фона -->
-      <path id="belly" d="M450 1240
-        C 470 1210 610 1210 630 1240
-        L 640 1450 C 590 1475 490 1475 440 1450 Z"
+      <path id="belly" d="M465 1235
+        C 480 1210 600 1210 615 1235
+        L 625 1448 C 585 1468 495 1468 455 1448 Z"
         fill="#FFE3BF" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
       <!-- Жилет-хайвиз -->
-      <path id="vest" d="M400 1150 L 470 1150 L 480 1480 L 400 1470 Z"
+      <path id="vest" d="M405 1145
+        C 430 1115 465 1100 500 1098
+        L 502 1170 L 486 1470 L 408 1458 Z"
         fill="#3DAA8C" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <path id="vest_right" d="M610 1150 L 680 1150 L 680 1470 L 600 1480 Z"
+      <path id="vest_right" d="M580 1098
+        C 615 1100 650 1115 675 1145
+        L 672 1458 L 594 1470 L 578 1170 Z"
         fill="#3DAA8C" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
-      <!-- Светоотражающие полосы -->
-      <rect id="vest_stripe_l" x="402" y="1280" width="76" height="22" fill="#FFF4E0"/>
-      <rect id="vest_stripe_r" x="602" y="1280" width="76" height="22" fill="#FFF4E0"/>
+      <!-- Светоотражающие полосы повторяют наклон передних панелей -->
+      <path id="vest_stripe_l" d="M408 1280 L 488 1280 L 487 1302 L 409 1302 Z" fill="#FFF4E0"/>
+      <path id="vest_stripe_r" d="M592 1280 L 672 1280 L 671 1302 L 593 1302 Z" fill="#FFF4E0"/>
+      <!-- Ворот жилета -->
+      <path id="vest_collar" d="M500 1098 L 540 1138 L 580 1098" fill="none"
+        stroke="#222222" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
 
     <!-- ================= ЛЕВАЯ РУКА + БЛОКНОТ ================= -->
@@ -118,27 +125,27 @@
         fill="#3DAA8C" stroke="#222222" stroke-width="6"/>
       <rect id="notebook_page" x="312" y="1372" width="96" height="126" rx="6"
         fill="#FFF4E0" stroke="#222222" stroke-width="4"/>
-      <line id="notebook_line_1" x1="326" y1="1402" x2="394" y2="1402"
+      <line id="notebook_line_1" x1="370" y1="1402" x2="394" y2="1402"
         stroke="#1F4E79" stroke-width="5"/>
-      <line id="notebook_line_2" x1="326" y1="1432" x2="394" y2="1432"
+      <line id="notebook_line_2" x1="370" y1="1432" x2="394" y2="1432"
         stroke="#1F4E79" stroke-width="5"/>
-      <line id="notebook_line_3" x1="326" y1="1462" x2="380" y2="1462"
+      <line id="notebook_line_3" x1="370" y1="1462" x2="394" y2="1462"
         stroke="#1F4E79" stroke-width="5"/>
-      <!-- Пальцы поверх блокнота (обхват) -->
-      <g id="fingers_l">
-        <ellipse id="finger_l_1" cx="352" cy="1380" rx="20" ry="12"
-          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
-        <ellipse id="finger_l_2" cx="348" cy="1410" rx="22" ry="12"
-          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
-        <ellipse id="finger_l_3" cx="350" cy="1440" rx="20" ry="12"
-          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
-      </g>
-      <!-- Карандаш в блокноте -->
+      <!-- Карандаш расположен за пальцами -->
       <g id="pencil">
-        <rect id="pencil_body" x="372" y="1340" width="14" height="90" rx="4"
+        <rect id="pencil_body" x="389" y="1340" width="10" height="90" rx="4"
           fill="#FF8A3D" stroke="#222222" stroke-width="4"/>
-        <polygon id="pencil_tip" points="372,1430 379,1450 386,1430"
+        <polygon id="pencil_tip" points="389,1430 394,1447 399,1430"
           fill="#FFF4E0" stroke="#222222" stroke-width="4" stroke-linejoin="round"/>
+      </g>
+      <!-- Пальцы обхватывают край обложки, не перекрывая записи -->
+      <g id="fingers_l">
+        <ellipse id="finger_l_1" cx="350" cy="1385" rx="17" ry="11"
+          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
+        <ellipse id="finger_l_2" cx="350" cy="1415" rx="18" ry="11"
+          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
+        <ellipse id="finger_l_3" cx="350" cy="1445" rx="17" ry="11"
+          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
       </g>
     </g>
 
@@ -170,13 +177,20 @@
       <ellipse id="face" cx="540" cy="820" rx="220" ry="200"
         fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
       <!-- Светлая часть морды -->
-      <path id="muzzle" d="M390 870
-        C 460 940 620 940 690 870
-        C 680 1010 540 1040 400 1010 Z"
+      <path id="muzzle" d="M390 858
+        C 425 890 475 914 540 914
+        C 605 914 655 890 690 858
+        C 680 948 625 1000 540 1000
+        C 455 1000 400 948 390 858 Z"
         fill="#FFF4E0" stroke="none"/>
-      <!-- Щёки -->
-      <circle id="cheek_l" cx="415" cy="900" r="30" fill="#E06A22" opacity="0.45"/>
-      <circle id="cheek_r" cx="665" cy="900" r="30" fill="#E06A22" opacity="0.45"/>
+      <!-- Мягкие щёчные пятна, симметричные относительно центра -->
+      <ellipse id="cheek_l" cx="420" cy="906" rx="27" ry="21" fill="#E06A22" opacity="0.28"/>
+      <ellipse id="cheek_r" cx="660" cy="906" rx="27" ry="21" fill="#E06A22" opacity="0.28"/>
+      <!-- Объёмные щёчки мордочки -->
+      <path id="muzzle_lobe_l" d="M468 910 C 480 895 510 898 528 920 C 522 944 505 951 488 940 C 477 933 471 922 468 910 Z"
+        fill="#FFF4E0" stroke="none"/>
+      <path id="muzzle_lobe_r" d="M612 910 C 600 895 570 898 552 920 C 558 944 575 951 592 940 C 603 933 609 922 612 910 Z"
+        fill="#FFF4E0" stroke="none"/>
 
       <!-- ГЛАЗА: 3 состояния, взаимоисключающие -->
       <g id="eyes_open">
@@ -208,23 +222,42 @@
         <rect id="brow_r_up" x="580" y="735" width="70" height="12" rx="6" fill="#222222"/>
       </g>
 
-      <!-- НОС -->
-      <ellipse id="nose" cx="540" cy="880" rx="30" ry="22"
-        fill="#222222"/>
+      <!-- НОС: мягкий треугольник с округлёнными крыльями -->
+      <path id="nose" d="M510 876
+        C 512 866 523 863 540 863
+        C 557 863 568 866 570 876
+        C 568 888 551 901 540 903
+        C 529 901 512 888 510 876 Z"
+        fill="#222222" stroke="#222222" stroke-width="3" stroke-linejoin="round"/>
+      <path id="nose_glint" d="M523 873 Q535 868 546 872"
+        fill="none" stroke="#FFF4E0" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
 
-      <!-- РОТ: 3 состояния -->
+      <!-- РОТ: выразительная лисья улыбка с центральной перемычкой -->
       <g id="mouth_smile">
-        <path id="smile_path" d="M500 930 Q540 960 580 930"
-          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path id="philtrum" d="M540 900 L540 925"
+          stroke="#222222" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path id="smile_path" d="M540 925
+          C 530 940 513 947 497 939
+          M540 925
+          C 550 940 567 947 583 939"
+          stroke="#222222" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="smile_lower" d="M500 944 C 523 964 557 964 580 944"
+          stroke="#222222" stroke-width="5" fill="none" stroke-linecap="round"/>
       </g>
       <g id="mouth_open" display="none">
-        <ellipse id="mouth_open_shape" cx="540" cy="940" rx="34" ry="24"
+        <path id="mouth_open_shape" d="M505 928
+          C 510 911 530 909 540 921
+          C 550 909 570 911 575 928
+          C 579 949 560 968 540 968
+          C 520 968 501 949 505 928 Z"
           fill="#222222"/>
-        <ellipse id="tongue" cx="540" cy="952" rx="18" ry="10" fill="#E06A22"/>
+        <path id="tongue" d="M520 950 Q540 939 560 950 Q555 965 540 965 Q525 965 520 950 Z"
+          fill="#E06A22"/>
       </g>
       <g id="mouth_wow" display="none">
-        <circle id="mouth_wow_circle" cx="540" cy="940" r="22"
+        <ellipse id="mouth_wow_circle" cx="540" cy="944" rx="19" ry="27"
           fill="#222222"/>
+        <ellipse id="mouth_wow_glint" cx="534" cy="934" rx="5" ry="7" fill="#FFF4E0" opacity="0.75"/>
       </g>
     </g>
 
