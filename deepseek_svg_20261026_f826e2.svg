@@ -180,32 +180,32 @@
 
       <!-- ГЛАЗА: 3 состояния, взаимоисключающие -->
       <g id="eyes_open">
-        <ellipse id="eye_l_open" cx="465" cy="800" rx="30" ry="40" fill="#222222"/>
-        <ellipse id="eye_r_open" cx="615" cy="800" rx="30" ry="40" fill="#222222"/>
-        <circle id="eye_l_glint" cx="475" cy="786" r="10" fill="#FFF4E0"/>
-        <circle id="eye_r_glint" cx="625" cy="786" r="10" fill="#FFF4E0"/>
+        <ellipse id="eye_l_open" cx="465" cy="815" rx="30" ry="38" fill="#222222"/>
+        <ellipse id="eye_r_open" cx="615" cy="815" rx="30" ry="38" fill="#222222"/>
+        <circle id="eye_l_glint" cx="475" cy="802" r="9" fill="#FFF4E0"/>
+        <circle id="eye_r_glint" cx="625" cy="802" r="9" fill="#FFF4E0"/>
       </g>
       <g id="eyes_closed" display="none">
-        <path id="eye_l_closed" d="M435 800 Q465 815 495 800"
+        <path id="eye_l_closed" d="M435 815 Q465 830 495 815"
           stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
-        <path id="eye_r_closed" d="M585 800 Q615 815 645 800"
+        <path id="eye_r_closed" d="M585 815 Q615 830 645 815"
           stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
       </g>
       <g id="eyes_happy" display="none">
-        <path id="eye_l_happy" d="M435 810 Q465 780 495 810"
+        <path id="eye_l_happy" d="M435 825 Q465 795 495 825"
           stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
-        <path id="eye_r_happy" d="M585 810 Q615 780 645 810"
+        <path id="eye_r_happy" d="M585 825 Q615 795 645 825"
           stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
       </g>
 
       <!-- БРОВИ -->
       <g id="brows_neutral">
-        <rect id="brow_l_neutral" x="430" y="735" width="70" height="12" rx="6" fill="#222222"/>
-        <rect id="brow_r_neutral" x="580" y="735" width="70" height="12" rx="6" fill="#222222"/>
+        <rect id="brow_l_neutral" x="430" y="755" width="70" height="12" rx="6" fill="#222222"/>
+        <rect id="brow_r_neutral" x="580" y="755" width="70" height="12" rx="6" fill="#222222"/>
       </g>
       <g id="brows_up" display="none">
-        <rect id="brow_l_up" x="430" y="715" width="70" height="12" rx="6" fill="#222222"/>
-        <rect id="brow_r_up" x="580" y="715" width="70" height="12" rx="6" fill="#222222"/>
+        <rect id="brow_l_up" x="430" y="735" width="70" height="12" rx="6" fill="#222222"/>
+        <rect id="brow_r_up" x="580" y="735" width="70" height="12" rx="6" fill="#222222"/>
       </g>
 
       <!-- НОС -->
@@ -231,20 +231,20 @@
     <!-- ================= КАСКА ================= -->
     <g id="helmet">
       <!-- Купол -->
-      <path id="helmet_dome" d="M320 720
-        C 320 540 760 540 760 720
-        L 760 750 L 320 750 Z"
+      <path id="helmet_dome" d="M320 700
+        C 320 540 760 540 760 700
+        L 760 730 L 320 730 Z"
         fill="#1F4E79" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
       <!-- Тёмная полоса-тень снизу купола -->
-      <path id="helmet_shade" d="M320 720 L 760 720 L 760 750 L 320 750 Z"
+      <path id="helmet_shade" d="M320 700 L 760 700 L 760 730 L 320 730 Z"
         fill="#163A5A"/>
       <!-- Козырёк -->
-      <path id="helmet_visor" d="M300 740
-        C 300 800 780 800 780 740
-        L 780 770 C 780 820 300 820 300 770 Z"
+      <path id="helmet_visor" d="M300 700
+        C 300 745 780 745 780 700
+        L 780 720 C 780 765 300 765 300 720 Z"
         fill="#1F4E79" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
       <!-- Тёмный ободок козырька -->
-      <path id="helmet_rim" d="M300 770 C 300 820 780 820 780 770"
+      <path id="helmet_rim" d="M300 720 C 300 765 780 765 780 720"
         stroke="#163A5A" stroke-width="10" fill="none" stroke-linecap="round"/>
       <!-- Лампа -->
       <circle id="helmet_lamp" cx="540" cy="620" r="26"
