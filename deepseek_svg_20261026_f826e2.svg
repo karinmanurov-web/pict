@@ -1,0 +1,300 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!--
+  ============================================================
+  МАСКОТ «ЛИС-ПОЛИГЛОТ ФИКСА» — анимационный SVG (v2)
+  Палитра проекта + один доп. оттенок на цвет:
+    bg/cream      #FFF4E0   (фон, светлые пятна)
+    cream_dark    #FFE3BF   (живот — тёмнее фона)
+    primary       #1F4E79   (каска, штаны, контур-акценты)
+    primary_dark  #163A5A   (тень каски, обувь)
+    accent        #FF8A3D   (мех лиса)
+    accent_dark   #E06A22   (тень меха)
+    support       #3DAA8C   (жилет, блокнот)
+    support_dark  #2C8068   (тень жилета)
+    text/outline  #222222   (контур, глаза)
+  Стиль: единый контур 6px на силуэтах, без градиентов/filter/mask.
+  ============================================================
+  КАРТА ID (порядок back → front):
+    mascot_tail, tail_base(pivot), tail_fluff, tail_tip
+    leg_l, leg_r, foot_l, foot_r, paw_l, paw_r
+    torso, vest, vest_stripe_l, vest_stripe_r, belly
+    arm_l, hand_l, fingers_l, notebook, pencil
+    neck, neck_pivot(pivot)
+    head, ear_l, ear_base_l(pivot), ear_r, ear_base_r(pivot)
+    face, muzzle, cheek_l, cheek_r
+    eyes_open / eyes_closed / eyes_happy  (взаимоискл., display)
+    brows_neutral / brows_up              (взаимоискл., display)
+    mouth_smile / mouth_open / mouth_wow  (взаимоискл., display)
+    helmet, helmet_dome, helmet_visor, helmet_rim, helmet_lamp, helmet_badge
+    arm_r_point / arm_r_wave   (взаимоискл., display)
+    shoulder_r(pivot), hand_r_point / hand_r_wave, finger_r
+    lang_accent (display="none")
+  Пивоты: circle r="2" fill="none" — shoulder_l, shoulder_r, neck,
+          ear_base_l, ear_base_r, tail_base.
+  ============================================================
+  -->
+  <g id="mascot_root">
+
+    <!-- ================= ХВОСТ (за телом) ================= -->
+    <g id="mascot_tail">
+      <circle id="tail_base" cx="360" cy="1420" r="2" fill="none"/>
+      <!-- Основание хвоста -->
+      <path id="tail_fluff" d="M380 1400
+        C 250 1360 200 1240 260 1120
+        C 300 1040 380 1010 440 1060
+        C 400 1140 380 1240 420 1340 Z"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <!-- Тёмная тень у основания -->
+      <path id="tail_shade" d="M380 1400 C 300 1380 250 1300 280 1220
+        C 320 1260 380 1300 420 1340 Z"
+        fill="#E06A22" stroke="none"/>
+      <!-- Кремовый кончик -->
+      <path id="tail_tip" d="M270 1120 C 250 1060 300 1010 360 1010
+        C 400 1010 430 1035 440 1060 C 400 1060 330 1080 300 1130 Z"
+        fill="#FFF4E0" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+    </g>
+
+    <!-- ================= НОГИ / СТОПЫ ================= -->
+    <g id="leg_l">
+      <rect id="leg_l_shape" x="440" y="1500" width="90" height="200" rx="28"
+        fill="#1F4E79" stroke="#222222" stroke-width="6"/>
+      <ellipse id="foot_l" cx="485" cy="1720" rx="72" ry="30"
+        fill="#163A5A" stroke="#222222" stroke-width="6"/>
+      <!-- Подушечки лап -->
+      <ellipse id="paw_l_big" cx="485" cy="1722" rx="24" ry="12" fill="#FFF4E0"/>
+      <circle id="paw_l_toe1" cx="458" cy="1710" r="6" fill="#FFF4E0"/>
+      <circle id="paw_l_toe2" cx="485" cy="1704" r="6" fill="#FFF4E0"/>
+      <circle id="paw_l_toe3" cx="512" cy="1710" r="6" fill="#FFF4E0"/>
+    </g>
+    <g id="leg_r">
+      <rect id="leg_r_shape" x="550" y="1500" width="90" height="200" rx="28"
+        fill="#1F4E79" stroke="#222222" stroke-width="6"/>
+      <ellipse id="foot_r" cx="595" cy="1720" rx="72" ry="30"
+        fill="#163A5A" stroke="#222222" stroke-width="6"/>
+      <ellipse id="paw_r_big" cx="595" cy="1722" rx="24" ry="12" fill="#FFF4E0"/>
+      <circle id="paw_r_toe1" cx="568" cy="1710" r="6" fill="#FFF4E0"/>
+      <circle id="paw_r_toe2" cx="595" cy="1704" r="6" fill="#FFF4E0"/>
+      <circle id="paw_r_toe3" cx="622" cy="1710" r="6" fill="#FFF4E0"/>
+    </g>
+
+    <!-- ================= ТУЛОВИЩЕ ================= -->
+    <g id="torso">
+      <!-- Силуэт тела (единый контур) -->
+      <path id="torso_shape" d="M380 1180
+        C 380 1120 460 1090 540 1090
+        C 620 1090 700 1120 700 1180
+        L 720 1500 C 660 1540 420 1540 360 1500 Z"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <!-- Живот: явно внутри торса, тёмнее фона -->
+      <path id="belly" d="M450 1240
+        C 470 1210 610 1210 630 1240
+        L 640 1450 C 590 1475 490 1475 440 1450 Z"
+        fill="#FFE3BF" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <!-- Жилет-хайвиз -->
+      <path id="vest" d="M400 1150 L 470 1150 L 480 1480 L 400 1470 Z"
+        fill="#3DAA8C" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <path id="vest_right" d="M610 1150 L 680 1150 L 680 1470 L 600 1480 Z"
+        fill="#3DAA8C" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <!-- Светоотражающие полосы -->
+      <rect id="vest_stripe_l" x="402" y="1280" width="76" height="22" fill="#FFF4E0"/>
+      <rect id="vest_stripe_r" x="602" y="1280" width="76" height="22" fill="#FFF4E0"/>
+    </g>
+
+    <!-- ================= ЛЕВАЯ РУКА + БЛОКНОТ ================= -->
+    <g id="arm_l">
+      <circle id="shoulder_l" cx="400" cy="1200" r="2" fill="none"/>
+      <path id="arm_l_shape" d="M400 1180
+        C 340 1220 310 1320 320 1420
+        C 325 1460 370 1470 390 1440
+        C 405 1400 400 1300 430 1240 Z"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <!-- Ладонь левой руки держит блокнот -->
+      <circle id="hand_l" cx="360" cy="1440" r="42"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+    </g>
+
+    <g id="notebook">
+      <rect id="notebook_cover" x="300" y="1360" width="120" height="150" rx="10"
+        fill="#3DAA8C" stroke="#222222" stroke-width="6"/>
+      <rect id="notebook_page" x="312" y="1372" width="96" height="126" rx="6"
+        fill="#FFF4E0" stroke="#222222" stroke-width="4"/>
+      <line id="notebook_line_1" x1="326" y1="1402" x2="394" y2="1402"
+        stroke="#1F4E79" stroke-width="5"/>
+      <line id="notebook_line_2" x1="326" y1="1432" x2="394" y2="1432"
+        stroke="#1F4E79" stroke-width="5"/>
+      <line id="notebook_line_3" x1="326" y1="1462" x2="380" y2="1462"
+        stroke="#1F4E79" stroke-width="5"/>
+      <!-- Пальцы поверх блокнота (обхват) -->
+      <g id="fingers_l">
+        <ellipse id="finger_l_1" cx="352" cy="1380" rx="20" ry="12"
+          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
+        <ellipse id="finger_l_2" cx="348" cy="1410" rx="22" ry="12"
+          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
+        <ellipse id="finger_l_3" cx="350" cy="1440" rx="20" ry="12"
+          fill="#FF8A3D" stroke="#222222" stroke-width="5"/>
+      </g>
+      <!-- Карандаш в блокноте -->
+      <g id="pencil">
+        <rect id="pencil_body" x="372" y="1340" width="14" height="90" rx="4"
+          fill="#FF8A3D" stroke="#222222" stroke-width="4"/>
+        <polygon id="pencil_tip" points="372,1430 379,1450 386,1430"
+          fill="#FFF4E0" stroke="#222222" stroke-width="4" stroke-linejoin="round"/>
+      </g>
+    </g>
+
+    <!-- ================= ШЕЯ + ГОЛОВА ================= -->
+    <g id="neck_group">
+      <circle id="neck" cx="540" cy="1100" r="2" fill="none"/>
+      <rect id="neck_shape" x="500" y="1040" width="80" height="90" rx="20"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+    </g>
+
+    <g id="head">
+      <!-- Уши (сначала, за головой) -->
+      <g id="ear_l">
+        <circle id="ear_base_l" cx="420" cy="700" r="2" fill="none"/>
+        <polygon id="ear_l_outer" points="400,720 320,460 520,600"
+          fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+        <polygon id="ear_l_inner" points="410,690 360,520 490,610"
+          fill="#FFF4E0" stroke="none"/>
+      </g>
+      <g id="ear_r">
+        <circle id="ear_base_r" cx="660" cy="700" r="2" fill="none"/>
+        <polygon id="ear_r_outer" points="680,720 760,460 560,600"
+          fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+        <polygon id="ear_r_inner" points="670,690 720,520 590,610"
+          fill="#FFF4E0" stroke="none"/>
+      </g>
+
+      <!-- Морда -->
+      <ellipse id="face" cx="540" cy="820" rx="220" ry="200"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+      <!-- Светлая часть морды -->
+      <path id="muzzle" d="M390 870
+        C 460 940 620 940 690 870
+        C 680 1010 540 1040 400 1010 Z"
+        fill="#FFF4E0" stroke="none"/>
+      <!-- Щёки -->
+      <circle id="cheek_l" cx="415" cy="900" r="30" fill="#E06A22" opacity="0.45"/>
+      <circle id="cheek_r" cx="665" cy="900" r="30" fill="#E06A22" opacity="0.45"/>
+
+      <!-- ГЛАЗА: 3 состояния, взаимоисключающие -->
+      <g id="eyes_open">
+        <ellipse id="eye_l_open" cx="465" cy="800" rx="30" ry="40" fill="#222222"/>
+        <ellipse id="eye_r_open" cx="615" cy="800" rx="30" ry="40" fill="#222222"/>
+        <circle id="eye_l_glint" cx="475" cy="786" r="10" fill="#FFF4E0"/>
+        <circle id="eye_r_glint" cx="625" cy="786" r="10" fill="#FFF4E0"/>
+      </g>
+      <g id="eyes_closed" display="none">
+        <path id="eye_l_closed" d="M435 800 Q465 815 495 800"
+          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path id="eye_r_closed" d="M585 800 Q615 815 645 800"
+          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="eyes_happy" display="none">
+        <path id="eye_l_happy" d="M435 810 Q465 780 495 810"
+          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path id="eye_r_happy" d="M585 810 Q615 780 645 810"
+          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
+      </g>
+
+      <!-- БРОВИ -->
+      <g id="brows_neutral">
+        <rect id="brow_l_neutral" x="430" y="735" width="70" height="12" rx="6" fill="#222222"/>
+        <rect id="brow_r_neutral" x="580" y="735" width="70" height="12" rx="6" fill="#222222"/>
+      </g>
+      <g id="brows_up" display="none">
+        <rect id="brow_l_up" x="430" y="715" width="70" height="12" rx="6" fill="#222222"/>
+        <rect id="brow_r_up" x="580" y="715" width="70" height="12" rx="6" fill="#222222"/>
+      </g>
+
+      <!-- НОС -->
+      <ellipse id="nose" cx="540" cy="880" rx="30" ry="22"
+        fill="#222222"/>
+
+      <!-- РОТ: 3 состояния -->
+      <g id="mouth_smile">
+        <path id="smile_path" d="M500 930 Q540 960 580 930"
+          stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="mouth_open" display="none">
+        <ellipse id="mouth_open_shape" cx="540" cy="940" rx="34" ry="24"
+          fill="#222222"/>
+        <ellipse id="tongue" cx="540" cy="952" rx="18" ry="10" fill="#E06A22"/>
+      </g>
+      <g id="mouth_wow" display="none">
+        <circle id="mouth_wow_circle" cx="540" cy="940" r="22"
+          fill="#222222"/>
+      </g>
+    </g>
+
+    <!-- ================= КАСКА ================= -->
+    <g id="helmet">
+      <!-- Купол -->
+      <path id="helmet_dome" d="M320 720
+        C 320 540 760 540 760 720
+        L 760 750 L 320 750 Z"
+        fill="#1F4E79" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <!-- Тёмная полоса-тень снизу купола -->
+      <path id="helmet_shade" d="M320 720 L 760 720 L 760 750 L 320 750 Z"
+        fill="#163A5A"/>
+      <!-- Козырёк -->
+      <path id="helmet_visor" d="M300 740
+        C 300 800 780 800 780 740
+        L 780 770 C 780 820 300 820 300 770 Z"
+        fill="#1F4E79" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <!-- Тёмный ободок козырька -->
+      <path id="helmet_rim" d="M300 770 C 300 820 780 820 780 770"
+        stroke="#163A5A" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- Лампа -->
+      <circle id="helmet_lamp" cx="540" cy="620" r="26"
+        fill="#FFF4E0" stroke="#222222" stroke-width="6"/>
+      <circle id="helmet_lamp_core" cx="540" cy="620" r="12" fill="#FF8A3D"/>
+      <!-- Значок-флажок -->
+      <rect id="helmet_badge" x="640" y="640" width="34" height="46" rx="6"
+        fill="#3DAA8C" stroke="#222222" stroke-width="5"/>
+    </g>
+
+    <!-- ================= ПРАВАЯ РУКА (2 позы) ================= -->
+    <g id="arm_r_point">
+      <circle id="shoulder_r" cx="680" cy="1200" r="2" fill="none"/>
+      <path id="arm_r_point_shape" d="M680 1180
+        C 760 1160 820 1080 850 980
+        C 865 930 905 930 905 970
+        C 900 1060 830 1180 720 1240 Z"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <!-- Ладонь + указательный палец -->
+      <circle id="hand_r_point" cx="860" cy="940" r="46"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+      <rect id="finger_r" x="865" y="875" width="24" height="80" rx="12"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+      <rect id="thumb_r" x="810" y="925" width="24" height="46" rx="12"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+    </g>
+    <g id="arm_r_wave" display="none">
+      <circle id="shoulder_r_wave" cx="680" cy="1200" r="2" fill="none"/>
+      <path id="arm_r_wave_shape" d="M680 1180
+        C 760 1140 820 1000 800 880
+        C 790 820 850 810 860 860
+        C 880 990 850 1170 720 1240 Z"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6" stroke-linejoin="round"/>
+      <circle id="hand_r_wave" cx="830" cy="840" r="48"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+      <rect id="wave_finger_1" x="790" y="790" width="22" height="70" rx="11"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+      <rect id="wave_finger_2" x="820" y="780" width="22" height="80" rx="11"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+      <rect id="wave_finger_3" x="850" y="790" width="22" height="70" rx="11"
+        fill="#FF8A3D" stroke="#222222" stroke-width="6"/>
+    </g>
+
+    <!-- ================= АКЦЕНТ ЯЗЫКА (скрыт, включать вручную) ================= -->
+    <g id="lang_accent" display="none">
+      <rect id="lang_scarf" x="450" y="1050" width="180" height="50" rx="25"
+        fill="#3DAA8C" stroke="#222222" stroke-width="6"/>
+      <rect id="lang_scarf_stripe" x="450" y="1068" width="180" height="14"
+        fill="#FFF4E0"/>
+    </g>
+
+  </g>
+</svg>
